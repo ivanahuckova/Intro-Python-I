@@ -22,3 +22,28 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+calendar = calendar.TextCalendar(0)
+
+
+def create_calendar(input):
+    now = datetime.now()
+    input_value = input.split()
+
+    if(len(input_value) == 0):
+        print(calendar.formatmonth(now.year, now.month))
+    elif(len(input_value) == 1):
+        month = int(input_value[0])
+        print(calendar.formatmonth(now.year, month))
+    elif(len(input_value) == 2):
+        month = int(input_value[0])
+        year = int(input_value[1])
+        print(calendar.formatmonth(year, month))
+    else:
+        print('To see the calendar, please include integer values for month and year. They should be separated by space.')
+
+
+calendar_input = input(
+    'To see the calendar, please input month and year in format mm yyyy: ')
+
+create_calendar(calendar_input)
